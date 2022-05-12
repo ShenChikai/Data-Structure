@@ -1,7 +1,6 @@
 ## CSCI 104
-## HW 6
 ## Name: Chikai Shen
-## E-mail: dennyshe@usc.edu
+## E-mail: dennyshe@usc.edu 
 
 # Problem 1: Drawing Trees
 ## The 2 resulting trees are drew in a text file named "hw6.txt".
