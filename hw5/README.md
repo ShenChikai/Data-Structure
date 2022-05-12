@@ -1,5 +1,4 @@
 ## CSCI 104
-## HW 6
 ## Name: Chikai Shen
 ## E-mail: dennyshe@usc.edu 
 
