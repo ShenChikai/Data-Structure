@@ -1,0 +1,27 @@
+1. Tree Structure for "CHEMISTRY"
+
+					C
+			H				E
+		M		I		S 		T
+	  R   Y
+
+
+2. Explain why this is a minHeap
+
+ 	A minHeap is a complete binary tree such that the data contained in each node is less than (or equal to) the data in its node's children.
+
+ 	"CHEMISTRY" is a minHeap as it satisfies the two properties where it is a complete tree, and the character in each node comes before the characters in its children's in alphabet.
+
+3. The resulting tree after add(D)
+
+ 					C
+			D				E
+		M		H		S 		T
+	  R   Y	  I
+
+4. Starting from the resulting tree from part 3, draw the tree after one call to remove()
+
+ 					D
+			H				E
+		M		I		S 		T
+	  R   Y	  

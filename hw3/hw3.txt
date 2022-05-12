@@ -1,0 +1,47 @@
+Prob 1
+	1.
+		A list of lists where the parent list has the size of the expreiment pool, and the children lists stores the histories of all of The Rani's subjects.
+	2.
+		A set of student object that contains all the students who earned an A in CSCI 103.
+	3.
+		A map with <key, value> pairs, <string, *student>, where the key is a name of the student, and the value is a pointer to the student object which contains more information about this student.
+	4.
+		A map with <key, value> pairs, <string, *set<student>>, where the key is a grade that students got for CSCI 103, and the value is a pointer to a set of student obejcts.
+
+
+Prob 2
+	1.
+		The funcB is called recursively to reverse the order of the Linked list, and the returned "out" in FuncA would then be a Pointer to the Node 5, and the LinkedList would now look like: 5 -> 4 -> 3 -> 2 -> 1 -> NULL.
+
+Prob 3
+	1. 
+		After the first time the inner FOR loop is executed, all the elements in A is 1, A[x] = 1, which makes the two IF statments false.
+		Therefore, the inner FOR loop will then noly be executed once, and the middle FOR loop will then only be executed for (i) times.
+		For the outter loop: SUM of (i) from 0 to n = θ(n^2) 
+
+		Answer: θ(n^2)
+
+	2.
+		func(int i): f(n) = f(n-1) + 1, Sum of θ(1) from i down to 1 = θ(i)
+		for (int i = 1; i < n; i *= 2): Sum of (2^i) from 0 to log(n-1) = θ(2^(log(n-1))) = θ(n)
+
+		Answer: θ(n)
+
+	3.
+		All the assignemnts is of θ(1).
+		For the first FOR loop creating the LL: SUM of (1) from 0 to n = θ(n)
+		Assume the worst branch (curr->data % i == 0),
+		For the inner FOR loop with the WHILE loop, it iterates n times when i=1, and it iterates n/2 times...
+			n + n/2 + n/3 + ... = θ(n * log(n))
+		For the second FOR loop: SUM of (n * log(n)) from 0 to n = θ(n^2 * log(n))
+		Since the first and the second FOR loops are seperate, we take the larger θ bounds of the two, θ(n^2 * log(n))
+
+		Answer: θ(n^2 * log(n))
+
+	4.
+		All the assignemnts is of θ(1), and can be ignored.
+		For the inner FOR loop: SUM of (1) from 0 to 3 = θ(1)
+		Everything in the outter For loop can be written as θ(1).
+		For the outter FOR loop: SUM of (1) from 0 to n = θ(n)
+
+		Answer: θ(n)

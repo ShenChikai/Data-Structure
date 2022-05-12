@@ -1,0 +1,47 @@
+In the big picture of this project: 
+	There will be 1 Map, 1 Iterator that map, to trace which Line of Command to execute.
+	There will be 1 Map for storing Non-Array Variables, and 1 Map for storing Arrary Variables.
+	There will be 1 Stack for pushing and poping the jump-back Line for Return.
+	(see iterpreter.h private for the above STL)
+	#All the vairables are stored in Maps while parsing, then the Executions take place after in a while loop (see iterpreter.cpp 400).
+
+Figuring out the bellow Commands are done in the while loop looping through the map with the Iterator as referred, where it calls the member function of Command "Do" pass the 3 Maps, 1 Iterator, and 1 Stack by referrence in a Try block:
+
+# c will be the number of Commands store in its Map.
+# m will be the number of non-array variables store in its Map.
+# a will be the number of array variables store in its Map.
+
+1. Analyze the running time for figuring out which line a GOTO, GOSUB, IF jumps to. 
+
+	The approaches for GOTO, GOSUB, IF are very much similar, except GOSUB (see command.cpp 210) requires to push its Line number to the Stack which takes time Θ(1), and If (see command.cpp 162) requires to check the result of its BooleanExpression which takes time Θ(log(n)) to find the value in Map.
+
+	The high-level approach is to first check wheter the jump-line exists using a .find(key) funnction of map which takes time Θ(log(c)). If not exist, throw an exception, and if exist, continue to Do. 
+
+	Take GOTO as example (see command.cpp 124), first define a new Iterator at the begin() the Command Map, and go through the map to the end(), searching for the key, jump-line, and this will take time Θ(c). After the key found, simply update the Iterator that passed by reference with the newly defined Iterator. The rest of the code are of constant runtime.
+
+	Therefore, figuring out which line a GOTO, GOSUB, IF jumps to takes time Θ(c) over all.
+
+
+2. Analyze the running time for figuring out the command that a RETURN jumps to.
+
+	The high-level approach is to first check wheter the Stack for jump-back exist or not using a .empty() funnction which takes time Θ(1). If not exist, throw an exception, and if exist, continue to Do. (see command.cpp 258)
+
+	The main portion of the method is to first get the top() value of the Stack to an integer variable 'b' and pop() that value from the Stack, and then define a new Iterator at the begin() the Command Map, and go through the map to the end(), searching for the key, b, and this will take time Θ(c). After the key found, simply update the Iterator that passed by reference with the newly defined Iterator.
+
+	Therefore, figuring out which line a RETURN jumps to takes time Θ(c) over all.
+
+
+3.	Analyze the running time for figuring out the value of a variable or overwriting the value of a variable.
+
+	The high-level approach is to first check if the variable already existed or not using a find() function of the Map which takes time Θ(log(m)). If not existed, then insert the variable with value 0 if not initialized, and if existed, then overwirte the variable. 
+
+	Figuring out the value of a variable or overwriting the value of a variable mainly happen in Do() fucntion of Commands PRINT (see command.cpp 16) or LET(see command.cpp 61), while the most of the other time, variables are being stored with initialized value 0 while parsing (see interpreter.cpp 173 for parse_numeric_expression). To print of overwrite a variable, its type needs to be identified first which takes time of Θ(1) calling some member functions which return type bool (see checkArrVar() and checkBinary() in arithmetic.cpp). Call find() function of the Map which takes time Θ(log(m)) to locate the varaible to access value or overwrite, and the simply call an insert() function or update the value by key which again takes time Θ(log(m)).
+
+	Therefore, figuring out the value of a variable or overwriting the value of a variable takes time Θ(log(m)) over all.
+
+
+4. Analyze the running time for figuring out the value of an array entry, assuming numerical value of the index is known.
+
+	The high-level approach when we were trying to access an array variable (refer to Do() function of the LET and PRINT above) with its map arrVarMap<string name, <int index, int value>>, it will take time Θ(log(log(a))) since it is a double map and assuming the index is figured out while figuring out its index could potentially takes more time becuase the index could be any kind of NumericExpression including another array and that the nesting will create more runtime on expression such as: A[B[C[...]]].
+
+	Therefore, iguring out the value of an array entry, assuming numerical value of the index is known takes time Θ(log(log(a))).
