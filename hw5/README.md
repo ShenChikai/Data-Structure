@@ -1,9 +1,7 @@
 ## CSCI 104
 ## HW 6
 ## Name: Chikai Shen
-## E-mail: dennyshe@usc.edu
-
-##This homework contains is made of 4 Problems. 
+## E-mail: dennyshe@usc.edu 
 
 # Problem 1: Heaps 
 ## All answers are written in a text file named "hw5.txt".
