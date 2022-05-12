@@ -1,11 +1,7 @@
-# Student Info
 ## CSCI 104
 ## HW 6
-## Name: Denny Shen
-## USC-ID: 2491547502
+## Name: Chikai Shen
 ## E-mail: dennyshe@usc.edu
-
-##This homework contains is made of 5 Problems. 
 
 # Problem 1: Drawing Trees
 ## The 2 resulting trees are drew in a text file named "hw6.txt".
