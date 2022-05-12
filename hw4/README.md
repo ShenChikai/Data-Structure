@@ -1,9 +1,8 @@
 ## CSCI 104
-## HW 4
 ## Name: Chikai Shen
-## E-mail: dennyshe@usc.edu
+## E-mail: dennyshe@usc.edu 
 
-## An implemented interpreter for the subset of BASIC parsed on HW2, and analyze the running time for some key operations.
+## An implemented interpreter for the subset of BASIC parsed on the second project, and analyze the running time for some key operations.
 
 # Instruction to get the Executable
 ## In the console, Write "make" to create the executable "hw4", and Run the executable by typing "./hw4 " followed by a .txt input file. Only correct syntax will be accepted. The executable will output whatever the input Commands are trying to do, and throw an exception and terminate the program if a error happened.
